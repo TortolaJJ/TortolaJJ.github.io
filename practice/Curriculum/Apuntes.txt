@@ -1,0 +1,12 @@
+
+
+Apuntes Práctica Curriculum:
+
+	* La imagen de la foto en la parte derecha no se puede poner con estas etiquetas.
+	* Poner alguna url que conecte con Linkedin, poner fondos etc.
+	* Dividir los apartados en columnas, hacer un html por columnas.
+	* Atajos para repetir etiquetas.
+	* Align = "center" no me funciona.
+
+
+Jose.
