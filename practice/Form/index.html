@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <meta name="author" content="José Javier García Tórtola">
+    <meta name="description" content="Form práctica no evaluable">
+</head>
+<body>
+
+    <form action="http://ncoge.com/phps/formulario.php" method="post">
+        <table cellspacing ="100">
+            <tr>
+                <td>
+
+            
+            
+        <fieldset>
+        <legend><h1>Datos Personales:</h1></legend>
+        <label for="Nombre">Nombre:</label><br>
+        <input type="text" id="Nombre" name="Nombre" value="Nombre"><br><br>
+
+        <label for="Apellidos">Apellidos:</label><br>
+        <input type="text" id="Apellidos" name="Apellidos"><br><br>
+
+        <label for="Email">Email:</label><br>
+        <input type="email" id="Email" name="Email"><br><br>
+
+        <label for="Hobbies">Hobbies:</label><br>
+        <textarea id="Hobbies" name="Hobbies" cols="40" rows="5"></textarea><br><br>
+        </fieldset>
+       </td>
+            
+        
+
+
+        <td>
+        <fieldset>
+            <legend><h1>Idiomas:</h1></legend>
+
+            <label for="Puntua tu nivel de idiomas del 1 al 5:"> Puntua tu nivel de idiomas del 1 al 5:</label><br><br>
+
+            <label for="Inglés">Inglés:</label>
+            <input type="radio" id="Inglés1" name="Inglés" value="1">
+            <label for="ingles1">1</label>
+
+            <input type="radio" id="Inglés2" name="Inglés" value="2">
+            <label for="ingles2">2</label>
+
+            <input type="radio" id="Inglés3" name="Inglés" value="3">
+            <label for="ingles3">3</label>
+
+            <input type="radio" id="Inglés4" name="Inglés" value="4">
+            <label for="ingles4">4</label>
+
+            <input type="radio" id="Inglés5" name="Inglés" value="5">
+            <label for="ingles5">5</label><br><br>
+
+           
+
+            <label for="Francés">Francés:</label>
+            <input type="radio" id="Francés1" name="Francés" value="1">
+            <label for="Frances1">1</label>
+
+           
+            <input type="radio" id="Francés2" name="Francés" value="2">
+            <label for="Frances2">2</label>
+
+            
+            <input type="radio" id="Francés3" name="Francés" value="3">
+            <label for="Frances3">3</label>
+
+           
+            <input type="radio" id="Francés4" name="Francés" value="4">
+            <label for="Frances4">4</label>
+
+            
+            <input type="radio" id="Francés5" name="Francés" value="5">
+            <label for="Frances5">5</label><br><br>
+
+            
+            
+
+            <label for="Aleman">Alemán:</label>
+            <input type="radio" id="Aleman1" name="Aleman" value="1">
+            <label for="Aleman1">1</label>
+
+             <input type="radio" id="Aleman2" name="Aleman" value="2">
+            <label for="Aleman2">2</label>
+
+             <input type="radio" id="Aleman3" name="Aleman" value="3">
+            <label for="Aleman3">3</label>
+
+             <input type="radio" id="Aleman4" name="Aleman" value="4">
+            <label for="Aleman4">4</label>
+
+             <input type="radio" id="Aleman5" name="Aleman" value="5">
+            <label for="Aleman5">5</label><br><br>
+           
+
+            
+        </fieldset>
+            
+
+           
+        <fieldset>
+            <legend><h1>Domino los siguientes programas:</h1></legend>
+            
+            <label for="Writter">Writter:</label>
+            <input type="checkbox" id="Writter" name="programas[]" value="Writter"><br>
+
+            <label for="Calc">Calc:</label>
+            <input type="checkbox" id="Calc" name="programas[]" value ="Calc">
+        </fieldset>
+
+        <fieldset>
+            <legend><h1>Trabaja con el siguiente sistema operativo:</h1></legend>
+            <label for ="Sistemas">Sistemas:</label>
+            <select id ="Sistemas" name="Sistemas">
+                <option value="Linux">Linux</option>
+                <option value="Windows">Windows</option>
+                <option value="Mac">Mac</option>
+                <option value="Ubuntu">Ubuntu</option>
+        </select>
+        </fieldset>
+        </td>
+        </tr>
+      
+       </table>
+
+       <input type="image" src="image/Enviar.png" name="Enviar">
+
+    </form>
+
+
+
+    
+</body>
+</html>
