@@ -1,0 +1,38 @@
+body {
+text-align: center;
+background-image: url("../images/fondo.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;
+font-family: 'Momo Signature', cursive;
+}
+
+h1 {
+background-color: gainsboro; 
+color: aliceblue;
+text-align: center;
+border-left: 30px solid red;
+padding-left: 30px;
+}
+
+
+img {
+    width: 700px;
+    height: 700px;
+    border: 10px solid black;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px gray;
+    }
+
+ul {
+  list-style: none;
+}
+
+li {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
