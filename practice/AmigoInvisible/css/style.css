@@ -1,0 +1,28 @@
+h1{
+  text-align: center;
+  border: 10px dotted black ;
+  border-radius: 5px;
+  background-color: aqua;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+  
+}
+
+form{
+    font-size: 40px;
+
+
+}
+
+label{
+   
+display: block;
+
+}
+
+input{
+    width:20%;
+    height:20%;
+    font-size: 20px;
+}
