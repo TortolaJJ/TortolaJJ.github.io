@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima en Valencia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #0056b3;
+      margin-bottom: 3em;
+    }
+
+    #weather {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      font-size: 1em;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+      font-size: 1em;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #003d80;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="titulo">Clima actual</h1>
+  <p id="weather">Cargando...</p>
+
+  <form action="#" method="get">
+    <label for="city">Ciudad:</label>
+    <input type="text" id="city" name="city" value="Valencia">
+    <button type="button" id="boton">Actualizar</button>
+    <button type="button" id="borrar">Borrar Ciudad</button>
+    
+  </form>
+
+  <script>
+    // URL de la API con tu clave (sustituye 'TU_API_KEY' por tu clave real)
+    const apiKey = 'a3b48d5852f9a86e81322ba125e561da';
+    let titulo = document.getElementById('titulo');
+    let boton = document.getElementById('boton');
+    let inputCiudad = document.getElementById('city');
+    let weather = document.getElementById('weather'); //INCLUYO AQUI WEATHER PARA SACAR LOS DATOS POR innerHTML
+    boton.addEventListener('click', function (event) {
+      event.preventDefault(); // Evita que el formulario se envíe
+      obtenerClima();
+    });
+
+    // Detectar la tecla Enter en el campo de texto
+    inputCiudad.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Evita que el formulario se envíe
+        obtenerClima(); // Llama a la función obtenerClima()
+      }
+    });
+
+    function obtenerClima() {
+      const ciudad = inputCiudad.value;
+      //const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},ES&units=metric&appid=${apiKey}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&lang=es&units=metric&appid=${apiKey}`;
+      titulo.innerHTML = "Clima actual " + ciudad;
+      // Usamos fetch para obtener los datos del clima
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al obtener los datos del clima: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Extraemos los datos relevantes
+          const temperature = data.main.temp;
+          const description = data.weather[0].description;
+          const humidity = data.main.humidity;
+
+          // Mostramos los datos en el HTML
+          /*  ACABALO  */
+          weather.innerHTML = "Temperatura" + temperature + "<br>"
+            + "Descripcion" + description + "<br>"
+            + "Humedad" + humidity;
+          /*  FIN ACABALO  */
+        })
+        .catch(error => {
+          console.error('Hubo un problema:', error);
+          document.getElementById('weather').textContent = `No se pudo obtener el clima.${error.message}`;
+        });
+    }
+    // Llamamos a la función para obtener el clima al cargar la página
+    obtenerClima();
+
+
+    function ciudadesMundo() {
+      const nombre = document.getElementById('city').value;
+      let url = `http://api.openweathermap.org/geo/1.0/direct?q=${nombre}&limit=5&lang=es&appid=${apiKey}`;
+      titulo.innerHTML = "geolocalizacion" + nombre
+
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('geolocalizacion error' + response.statusText);
+          }
+          return response.json();
+
+
+        })
+        .then((respuestaApi) => {
+          
+          console.log(respuestaApi)//para ver si es una array u objeto
+
+          respuestaApi.forEach(elementosConsole => {//recorrermos la respuestaApi y mostramos los elementos 
+            console.log(elementosConsole)
+
+            //+= acumulativo
+            weather.innerHTML += "Pais" + elementosConsole.country + "<br>" + //para visualizar en pantalla los datos de console con f12
+              "Nombre" + elementosConsole.name + "<br>" +
+              "Lat" + elementosConsole.lat + "<br>" +
+              "Lon" + elementosConsole.lon + "<br>" +
+              "Name" + elementosConsole.name + "<br>" +
+              "Country" + elementosConsole.country;
+
+          });
+
+
+
+
+
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+
+    };
+
+    
+
+    boton.addEventListener('click', ciudadesMundo);
+
+
+    function borrarCiudad() {
+      document.getElementById("weather").innerHTML = ""; //para borrar las ciudades introducidas nuevo boton borrar
+    }
+    const borrar = document.getElementById("borrar");
+    borrar.addEventListener('click', borrarCiudad);
+    borrarCiudad();
+
+
+  </script>
+</body>
+
+</html>
